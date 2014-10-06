@@ -1,0 +1,207 @@
+/*
+ * TMT IMG Highlight Theme Function (STYLESHEET)
+ * CSS.
+ *
+ */
+ 
+/* ////////////////////////////////////// */
+/* UI ADMIN */
+/* ////////////////////////////////////// */	
+
+	#wrapperAll{
+		margin: 20px 0px 0px 0px;
+		width: 500px;
+	}
+	#titleAll{
+		border: 1px solid #ccc;
+		border-radius: 4px;
+		background-color: #CCC;
+		text-align: center;
+	}
+	#titleAll span{
+		font-size: 18px;
+		font-weight: 600;
+		line-height: 40px;
+		vertical-align: middle;
+		text-transform: capitalize;
+		text-align: center;
+		
+	}
+	#contentAll span{
+		position: relative;
+		width: 100%;
+		display: table;
+	}
+	.btCurrent{
+		border-bottom: 1px solid #fff!important;
+		background: #fff!important;
+	}
+	.langAll{
+		display: table;
+		position: absolute;
+		right: -3px;
+		top: -6px;
+	}
+	.langAll ul{
+		margin: 0px;
+		padding: 0px;
+		display: table;
+	}
+	.langAll ul li{
+		display: inline-table;
+		padding: 2px 10px;
+		margin: 2px;
+		border: 1px solid #ddd;
+		background: rgb(240, 240, 240);
+		cursor: pointer;
+	}
+	#contentAll{
+		border: 1px solid #ccc;
+		border-radius: 4px;
+		background-color: #fff;
+		margin: 10px 0px;
+		padding: 10px;
+	}
+	#contentAll input{
+		height: 35px;
+		padding: 10px;
+	}
+	#contentAll textarea{
+		height: 150px;
+		max-width: 478px;
+		padding: 10px;
+	}
+	#contentAll input,
+	#contentAll textarea{
+		width: 100%;
+		margin-bottom: 10px;
+		border-color: inherit;
+		-webkit-box-shadow: none;
+		box-shadow: none;
+	}
+	.imgHighlightBt{
+		background: url('../images/bg_empty.jpg') center center repeat;
+		width: 100%;
+		height: 350px;
+		overflow: hidden;
+		position: relative;
+	}
+	.imgHighlightBt img{
+		position: absolute;
+		top:-99999px;
+		right:-99999px;
+		left:-99999px;
+		bottom:-99999px;
+		margin: auto;
+	}
+	#closeBt{
+		width: 21px;
+		height: 23px;
+		background: url('../images/closeBt.png') center center no-repeat;
+		position: absolute;
+		top:10px;
+		right: 10px;
+		z-index: 999;
+		-webkit-transition: all .2s linear;
+		-moz-transition: all .2s linear;
+		-o-transition: all .2s linear;
+		-ms-transition: all .2s linear;
+		transition: all .2s linear;
+		cursor: pointer;
+	}
+	#closeBt:hover{
+		opacity: .5;
+	}
+	
+	#submitBt {
+		background: #fbfbfb;
+		box-shadow: inset 0px 0px 0px 1px #ccc;
+		border-radius: 4px;
+		margin-bottom: 5px;
+		overflow: auto;
+		width: 100%;
+		margin-top: 10px;
+		filter: alpha(opacity=100);
+		opacity: 1;
+		text-align: center;
+		-webkit-transition: all .2s linear;
+		-moz-transition: all .2s linear;
+		-o-transition: all .2s linear;
+		-ms-transition: all .2s linear;
+		transition: all .2s linear;
+		cursor: pointer!important;
+		font-size: 18px;
+		font-weight: 600;
+		line-height: 40px;
+		vertical-align: middle;
+		text-transform: capitalize;
+		text-align: center;
+	}
+	#submitBt:hover {
+		filter: alpha(opacity=50);
+		opacity: .5;
+		background-color: #333;
+		color: #fff;
+		
+	}
+ 	
+/* ////////////////////////////////////// */
+/* STAT BAR */
+/* ////////////////////////////////////// */	
+ 	
+ 	#loadingData,
+	#pendingData,
+	#waitingData,
+	#emptyData,
+	#removeData,
+	#completeData{
+		display: none;
+		position: fixed;
+		width: 100%;
+		height: 100%;
+		padding: 1px;
+		background: rgba(247, 247, 247, 0.9);
+		z-index: 99999;
+		top:0px;
+		left: 0px;
+		right: 0px;
+		bottom: 0px;
+	}
+	.centerPage{
+		width: 140px;
+		height: 140px;
+		margin: auto;
+		position: fixed;
+		top:0px;
+		left: 0px;
+		right: 0px;
+		bottom: 0px;
+	}
+	.centerPage img{
+		margin: auto;
+		width: 70px;
+		height: 70px;
+		position: absolute;
+		top: 0px;
+		bottom: 0px;
+		left: 0px;
+		right: 0px;
+	}
+	#loadingData_bg{
+		background: url('../images/loading_FN/loadingData_bg.png')center center no-repeat;
+	}
+	#waitingData_bg{
+		background: url('../images/loading_FN/waitingData_bg.png')center center no-repeat;
+	}
+	#pendingData_bg{
+		background: url('../images/loading_FN/pendingData_bg.png')center center no-repeat;
+	}
+	#emptyData_bg{
+		background: url('../images/loading_FN/emptyData_bg.png')center center no-repeat;
+	}
+	#removeData_bg{
+		background: url('../images/loading_FN/removeData_bg.png')center center no-repeat;
+	}
+	#completeData_bg{
+		background: url('../images/loading_FN/completeData_bg.png')center center no-repeat;
+	}

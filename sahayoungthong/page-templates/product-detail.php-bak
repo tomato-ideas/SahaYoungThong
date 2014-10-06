@@ -1,0 +1,76 @@
+<?php
+/**
+ * Template Name: Product detail page
+ *
+ * @package WordPress
+ * @subpackage SahayoungThong
+ * @since SahayoungThong
+ */
+get_header(); 
+$getdirect =  get_template_directory_uri();
+$pid = $_REQUEST['ppid'];
+$results = $wpdb->get_results("SELECT * FROM wp_product WHERE pd_id = '$pid'");
+foreach($results as $dbr){
+?>
+
+ <div id="wrapper2">
+        <div id="product_title"><p>สินค้าและบริการ</p></div>
+        <div id="product_menu">
+            <ul>
+                <li><a href="/sahayoungthong/?page_id=2" >ยาง</a></li>
+                <li><a href="/sahayoungthong/?page_id=39" >ล้อแม็ก</a></li>
+                <li><a href="/sahayoungthong/?page_id=43" >ผ้าเบรก</a></li>
+                <li><a href="/sahayoungthong/?page_id=45" >น้ำมันเครื่องและไส้กรอง</a></li>
+                <li><a href="/sahayoungthong/?page_id=41" >โช้ก</a></li>
+                <li><a href="/sahayoungthong/?page_id=47" >แบตเตอรี่</a></li>
+            </ul>
+        </div>
+        <div id="id1">
+            
+        </div>  
+        <div id="product_detail_box1">
+            <div id="detailL">
+                <img src="/sahayoungthong/wp-content/uploads/<?php echo $dbr->pd_picture; ?>">
+            </div>
+            <div id="detailR">
+                <div id="detailR_title"><a class="fontTitleWhite"><?php $results2 = $wpdb->get_results("SELECT brand_name FROM wp_brand WHERE brand_id = '$dbr->brand_id'");
+                            foreach($results2 as $dbr2){ echo $dbr2->brand_name;  } ?> <?php echo $dbr->pd_code; ?></a></div>
+                <div id="detailR_text">
+                    <h3>Description:</h3>
+                    <p><?php if(isset($_SESSION['lang'])){
+                                if( $_SESSION['lang']=="TH" ){
+                                  	echo $dbr->pd_description_th;
+                                }else if( $_SESSION['lang']=="EN" ){
+                                 	echo $dbr->pd_description_en;
+                                }
+                            } else {
+                               echo $dbr->pd_description_th;
+                            } ?></p>
+                    <h3>Detail: </h3>
+                    <p><?php if(isset($_SESSION['lang'])){
+                                if( $_SESSION['lang']=="TH" ){
+                                  	echo $dbr->pd_detail_th;
+                                }else if( $_SESSION['lang']=="EN" ){
+                                 	echo $dbr->pd_detail_en;
+                                }
+                            } else {
+                               echo $dbr->pd_detail_th;
+                            } ?></p>
+                    <h3>Price:</h3>
+                    <p><?php echo number_format($dbr->pd_price); ?> บาท</p>
+                </div>
+            </div>
+        </div>
+        <div id="product_detail_box2">
+            <div id="spectab">
+                <a class="fontTitleWhite">Size & Specification</a>
+            </div>
+            <div id="specimg">
+                <img src="<?php echo $dbr->pd_tb_img; ?>">
+            </div>
+        </div>
+    </div>   
+<?php
+}
+get_footer();
+?>

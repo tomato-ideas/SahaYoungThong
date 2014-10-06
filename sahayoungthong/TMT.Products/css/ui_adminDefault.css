@@ -1,0 +1,14 @@
+/*
+ * Theme Function DEFALUT NEW FN (STYLESHEET)
+ * CSS.
+ *
+ */
+ 
+/* ////////////////////////////////////// */
+/* UI ADMIN */
+/* ////////////////////////////////////// */	
+
+ 	#adminmenu .wp-menu-image img{
+	 	width: 25px!important;
+	 	padding: 4px 0 0!important;
+ 	}

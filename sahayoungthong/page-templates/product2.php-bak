@@ -1,0 +1,87 @@
+<?php
+/**
+ * Template Name: Product page
+ *
+ * @package WordPress
+ * @subpackage SahayoungThong
+ * @since SahayoungThong
+ */
+global $wpdb;
+get_header(); ?>
+<div id="wrapper2">
+        <div id="product_title"><p>สินค้าและบริการ</p></div>
+        <div id="product_menu">
+            <ul>
+                <li><a href="#">ยาง</a></li>
+                <li><a href="#">ล้อแม็ก</a></li>
+                <li><a href="#">ผ้าเบรก</a></li>
+                <li><a href="#">น้ำมันเครื่องและไส้กรอง</a></li>
+                <li><a href="#">โช้ก</a></li>
+                <li><a href="#">แบตเตอรี่</a></li>
+            </ul>
+        </div>
+        <div id="id1"></div>
+        <div id="product_pic"><img src="wp-content/themes/sahayoungthong/images/title_pic.jpg"></div>
+        <div id="product_box1">
+            <div id="product_box1_search">
+                <div id="product_box1_search_title"><p class="fontTitleWhite">Search by</p></div>
+                <div id="product_box1_search_menu">
+                    <ul>
+                        <li><a href="#">Car Trie</a></li>
+                        <li><a href="#">Off road Tire</a></li>
+                    </ul>
+                </div>
+                <div id="product_box1_search_bt"></div>
+                <div id="product_box1_search_pic">
+                    <img src="wp-content/themes/sahayoungthong/images/product_box1_search_pic.jpg">
+                </div>
+            </div>
+            <div id="product_box1_recommend">
+                <div id="product_box1_recommend_title">
+                    <p class="fontTitleWhite">Recommend</p>
+                </div>
+                <div id="product_box1_recommend_box">
+                    <div id="product_box1_recommend_boxL">
+                        <img src="wp-content/themes/sahayoungthong/images/rec.jpg">
+                    </div>
+                    <div id="product_box1_recommend_boxR">
+                        <p class="product_box_model">รุ่น Duravis R611</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br class="clear">
+
+       
+        <div id="product_box2">
+         <?php
+          $sqlpk =  "SELECT * FROM wp_product" ;
+         $results = $wpdb->get_results($sqlpk);
+
+         foreach($results as $dbr){
+         ?>
+            <div id="product_box_detail<?php echo $dbr->pd_id; ?>" class="product_box" align="center">
+                <div>
+                   <?php $results2 = $wpdb->get_results("SELECT * FROM wp_brand WHERE brand_id = '$dbr->brand_id'");
+                        foreach($results2 as $dbr2){ ?>
+                        
+                    <img src="/sahayoungthong/wp-content/uploads/<?php echo $dbr2->brand_picture; ?>" class="product_box_logo">
+               
+                    <?php } ?>
+                    <img src="/sahayoungthong/wp-content/uploads/<?php echo $dbr->pd_picture; ?>" class="product_box_pic">
+                    <p class="product_box_model">รุ่น <?php echo $dbr->pd_code; ?></p>
+                </div>
+                <div class="style1">
+                    <p>หน้ายาง<br><span><?php echo $dbr->pd_front; ?></span></p>
+                    <p>ซีรีย์<br><span><?php echo $dbr->pd_series; ?></span></p>
+                    <p>กระทะล้อ<br><span><?php echo $dbr->pd_pan_wheels; ?></span></p>
+                    <a href="#" class="product_box_bt">Buy</a>
+                    <a href="#" class="product_box_bt">Detail</a>
+                </div>
+            </div>
+            <?php } ?> 
+        </div>
+    </div>
+<?php
+get_footer();
+?>
