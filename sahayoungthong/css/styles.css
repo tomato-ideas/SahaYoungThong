@@ -170,10 +170,10 @@
             height: 74px;
             width: 1031px;
             position: absolute;
-            top: 100px;
+/*             top: 100px; */
             left: 0px;
             right: 0px;
-            margin: auto;
+            margin: 10px auto;
             background-color: #e2e2e2;
             font-family: 'psl_kandamodern_proregular';
             font-size: 30px;
@@ -482,7 +482,7 @@ _:-ms-fullscreen, :root #menu ul li {
             color: #FFF;
         }
         #product_title p{
-            padding: 12px 20px!important;
+            padding: 24px 20px!important;
         }
         #product_menu{
             background-image: url(../images/product_menu.jpg);
