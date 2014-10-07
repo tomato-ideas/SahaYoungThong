@@ -82,12 +82,12 @@
 
         /* Targetting Webkit browsers only. FF will show the dropdown  arrow with so much padding. */
 @media screen and (-webkit-min-device-pixel-ratio:0) {
-        select {padding-right:18px}
+/*         select {padding-right:18px} */
         }
 
         label {position:relative}
         label:after {
-            content:'<>';
+/*             content:'<>'; */
             font:14px "Consolas", monospace;
             color:#aaa;
             -webkit-transform:rotate(90deg);
@@ -104,7 +104,7 @@
             content:'';
             right:6px; top:0px;
             width:15px; height:20px;
-            background:#f8f8f8;
+/*             background:#f8f8f8; */
             position:absolute;
             pointer-events:none;
             display:block;
@@ -314,14 +314,14 @@ _:-ms-fullscreen, :root #menu ul li {
         }
         #containner{
             width: 1031px;
-            height: 750px;
+            height: 770px;
             background-color: #f7f7f7;
             margin: auto auto;
             margin-top: 15px;
         }
         #containner #left{
-            width: 670px;
-            height: 700px;
+            width: 710px;
+            height: 750px;
             background-color: #f7f7f7;
             border-right: 1px solid #d3d4d6;
             float: left;
@@ -340,7 +340,7 @@ _:-ms-fullscreen, :root #menu ul li {
        .boxlogo{
             height: 26px;
             padding: 0px;
-            margin-left: 15px;
+            margin-left: 32px;
             margin-top: 30px;
             margin-bottom: 10px;
         }
@@ -375,7 +375,7 @@ _:-ms-fullscreen, :root #menu ul li {
         }
         #box2_1{
             float: left;
-            margin-left: 15px;
+            margin-left: 32px;
         } 
         #box2_2{
             float: left;
@@ -389,13 +389,13 @@ _:-ms-fullscreen, :root #menu ul li {
         }
         #box4_1{
             float: left;
-            margin-left: 15px;
+            margin-left: 32px;
         }
         #box4_2{
             float: left;
         }
         #right{
-            width: 348px;
+            width: 306px;
             background-color: #f7f7f7;
             float: right;
             margin-right: 5px;
@@ -403,9 +403,9 @@ _:-ms-fullscreen, :root #menu ul li {
         }
         #menuR{
             height: 46px;
-            width: 345px;
+            width: 305px;
             background-color: #021d48;
-            margin-top: 65px;
+            margin-top: 5px;
             font-family: 'psl_kandamodern_proregular';
         }
         #menuR ul{
@@ -433,17 +433,17 @@ _:-ms-fullscreen, :root #menu ul li {
             border-bottom: 2px solid #fff;
         }
         .nProduct{
-            width: 321px;
+            width: 305px;
             margin: auto;
             margin-top: 20px;
         }
         .RpicAll{
             display: table;
-            margin: auto;
+/*             margin: auto; */
         }
         .RdetailAll{
             height: 38px;
-            width: 321px;
+            width: 305px;
             background-color: #24292f;
             margin: auto;
             color: #fff;
@@ -459,6 +459,9 @@ _:-ms-fullscreen, :root #menu ul li {
     /* ////////////////////////////////////// */
     /* Product */
     /* ////////////////////////////////////// */
+        .nProductAll{
+	        margin-bottom: 20px;
+        }
         #wrapper2{
             width: 1031px;
             height: 100%;
@@ -479,7 +482,7 @@ _:-ms-fullscreen, :root #menu ul li {
             color: #FFF;
         }
         #product_title p{
-            padding: 24px 20px!important;
+            padding: 12px 20px!important;
         }
         #product_menu{
             background-image: url(../images/product_menu.jpg);

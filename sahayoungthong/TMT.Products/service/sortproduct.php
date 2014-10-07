@@ -18,7 +18,12 @@ $numrow = mysql_num_rows($query);
 if($numrow > 0){
 	while($result = mysql_fetch_array($query)){
 		echo "<tr>";
-		    echo "<td>".$result['pd_id']."</td>";
+		    echo "<td style='text-align:center;'>".$result['pd_id']."</td>";
+		    if($result['pd_picture'] == '//' || $result['pd_picture'] == ''){
+			    echo "<td class='imgThbAll'></td>";
+		    }else{
+			    echo "<td class='imgThbAll'><img src='../wp-content/uploads/".$result['pd_picture']."'></td>";
+		    }
 			echo "<td>".$result['pd_code']."</td>";
 				$solo3 =  $result['brand_id'];
 				$sql3 = "SELECT brand_name FROM wp_brand WHERE brand_id = $solo3";
@@ -34,7 +39,6 @@ if($numrow > 0){
 			echo "<td>".$result['pd_series']."</td>";
 			echo "<td>".$result['pd_pan_wheels']."</td>";
 			echo "<td>".$result['pd_price']."</td>";
-			echo "<td>".$result['pd_picture']."</td>";			
 			echo "<td>".$result['create_date']."</td>";
 			echo "<td style='text-align:center;'><button id='productAddBt' onclick='toedit(".$result['pd_id'].")' >Edit</button>
 			<button id='productAddBt' onclick='todel(".$result['pd_id'].")' >Delete</button></td>";

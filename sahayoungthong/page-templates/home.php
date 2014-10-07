@@ -43,18 +43,18 @@ get_header(); ?>
 		margin: auto;
 	}
 	.RpicAll{
-		height: 250px!important;
+		height: 308px!important;
 		overflow: hidden;
 		display: table;
-		width: 321px;
+		width: 305px;
 		position: relative;
 		background: url('<?php echo get_template_directory_uri(); ?>/images/logo-1.png')center center no-repeat rgb(231, 231, 231);
 	}
 	#right img {
-		width: 321px;
+		width: 305px;
 		height: auto;
 		position: absolute;
-		top: -99999px;
+		top: -99979px;
 		bottom: -99999px;
 		left: -99999px;
 		right: -99999px;
@@ -64,6 +64,7 @@ get_header(); ?>
 	.RdetailAll a{
 		color: #fff;
 		text-decoration: none;
+		margin: 0px;
 	}
 	#content{
 		background: url('<?php echo get_template_directory_uri(); ?>/images/lorem.jpg');
@@ -423,7 +424,7 @@ function submitfunc(){
  
 	                <div class="nProductAll" >
 	                    <div class="RpicAll" >
-	                    <div style="width: 321px;height: 250px;overflow: hidden;position: relative;">
+	                    <div style="width: 305px;height: 308px;overflow: hidden;position: relative;">
 	                    	
 	                    	<?php if($print->pd_picture == '' || $print->pd_picture == '//'){
 		                    	?>
@@ -431,7 +432,7 @@ function submitfunc(){
 		                    	<?php
 	                    	}else{
 		                    	?>
-		                    	<img style="cursor:pointer;" onclick="submitfuncd('<?php echo  $print->pd_id; ?>')" src="/sahayoungthong/wp-content/uploads/<?php echo $print->pd_picture; ?>">
+		                    	<img style="cursor:pointer;" onclick="submitfuncd('<?php echo  $print->pd_id; ?>')" src="/wp-content/uploads/<?php echo $print->pd_picture; ?>">
 		                    	<?php
 	                    	} ?>
 	                    </div>

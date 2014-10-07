@@ -148,14 +148,14 @@ get_header(); ?>
                     }else{
                         show += '<div id="product_box_detail'+ this.id +'" class="product_box" align="center">';
                         show +=    '<div class="wrapPD">';
-                        show +=    '<img src="/sahayoungthong/wp-content/uploads/'+ this.brand+'" class="product_box_logo">';
+                        show +=    '<img src="/wp-content/uploads/'+ this.brand+'" class="product_box_logo">';
                         if(this.pic == '' || this.pic == '//'){
                                
                         show += '<img src="<?php echo get_template_directory_uri(); ?>/images/logo-1.png" class="product_box_pic">';
                                
                         }else{
                                 
-                        show += '<img src="/sahayoungthong/wp-content/uploads/'+ this.pic +'" class="product_box_pic">';
+                        show += '<img src="/wp-content/uploads/'+ this.pic +'" class="product_box_pic">';
                                
                         }
                         show +=        '<p class="product_box_model">'+trm+' '+this.code+'</p>';
@@ -310,7 +310,7 @@ get_header(); ?>
         vertical-align: text-bottom;
     }
     .tablemember { width:100%; }
-    .tablemember tr:nth-child(even) { background-color:#33FFFF; }
+    .tablemember tr:nth-child(even) { background-color: rgb(199, 240, 255); }
     .tablemember tr:nth-child(odd) { background-color:#FFFFFF; }
     .tablemember th {background-color: #0074a2; color:white; cursor: default;}
     #product_menu li:nth-child(5) a{        
@@ -439,7 +439,7 @@ get_header(); ?>
             <ul>
                 <?php $submenup = $wpdb->get_results("SELECT * FROM wp_type ORDER BY type_id ASC");
                 foreach($submenup as $submenu){ ?>
-                <li><a href="/sahayoungthong/?page_id=<?php echo $submenu->page_id; ?>" ><?php if($lang == 'TH'){ echo $submenu->type_name_th;  }else{ echo $submenu->type_name; } ?></a></li>
+                <li><a href="/?page_id=<?php echo $submenu->page_id; ?>" ><?php if($lang == 'TH'){ echo $submenu->type_name_th;  }else{ echo $submenu->type_name; } ?></a></li>
                 <?php } ?>
             </ul>
         </div>
@@ -537,7 +537,7 @@ get_header(); ?>
                                 <?php
                             }else{
                                 ?>
-                                <img src="/sahayoungthong/wp-content/uploads/<?php echo  $jga2->pd_picture; ?>">
+                                <img src="/wp-content/uploads/<?php echo  $jga2->pd_picture; ?>">
                                 <?php
                             } ?> 
                     </div>
@@ -594,7 +594,7 @@ get_header(); ?>
                    <?php $results2 = $wpdb->get_results("SELECT * FROM wp_brand WHERE brand_id = '$dbr->brand_id'");
                         foreach($results2 as $dbr2){ ?>
                         
-                    <img src="/sahayoungthong/wp-content/uploads/<?php echo $dbr2->brand_picture; ?>" class="product_box_logo">
+                    <img src="/wp-content/uploads/<?php echo $dbr2->brand_picture; ?>" class="product_box_logo">
                
                     <?php } ?>
                     <?php if($dbr->pd_picture == '' || $dbr->pd_picture == '//'){
@@ -603,7 +603,7 @@ get_header(); ?>
 		                    	<?php
 	                    	}else{
 		                    	?>
-		                    	<img src="/sahayoungthong/wp-content/uploads/<?php echo $dbr->pd_picture; ?>" class="product_box_pic">
+		                    	<img src="/wp-content/uploads/<?php echo $dbr->pd_picture; ?>" class="product_box_pic">
 		                    	<?php
 	                    	} ?>
                     <p class="product_box_model"><?php if($lang == 'TH'){ ?> รุ่น <?php }else{ ?> Model <?php  } ?> <?php echo $dbr->pd_code; ?></p>
@@ -656,8 +656,8 @@ get_header(); ?>
 function submitfunc(spid){
      //$.cookie("ppid", spid);
      sessionStorage.setItem("ppid", spid);
-     window.open('/sahayoungthong/รายละเอียดสินค้า/','_blank');
-     //window.location.href = "/sahayoungthong/รายละเอียดสินค้า/";
+     window.open('/รายละเอียดสินค้า/','_blank');
+     //window.location.href = "/รายละเอียดสินค้า/";
 }</script>
 <!-- ************************************************************************************************** -->
 
@@ -674,10 +674,10 @@ function submitfunc(spid){
                    <?php $results2 = $wpdb->get_results("SELECT * FROM wp_brand WHERE brand_id = '$dbr->brand_id'");
                         foreach($results2 as $dbr2){ ?>
                         
-                    <img src="/sahayoungthong/wp-content/uploads/<?php echo $dbr2->brand_picture; ?>" class="product_box_logo">
+                    <img src="/wp-content/uploads/<?php echo $dbr2->brand_picture; ?>" class="product_box_logo">
                
                     <?php } ?>
-                    <img src="/sahayoungthong/wp-content/uploads/<?php echo $dbr->pd_picture; ?>" class="product_box_pic">
+                    <img src="/wp-content/uploads/<?php echo $dbr->pd_picture; ?>" class="product_box_pic">
                     <p class="product_box_model">รุ่น <?php echo $dbr->pd_code; ?></p>
                 </div>
                 <div class="style1">

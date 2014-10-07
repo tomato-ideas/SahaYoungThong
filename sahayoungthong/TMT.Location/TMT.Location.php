@@ -45,7 +45,7 @@ global $wpdb;
 		add_menu_page( 
 			'custom menu title', 'TMT.Location', 
 			'edit_published_posts', 'tmt_location', 
-			'custom_tmt_location_page', get_bloginfo('template_url') .'/TMT.location/images/tmt_location-logo.png', 113 );
+			'custom_tmt_location_page', get_bloginfo('template_url') .'/TMT.Location/images/tmt_location-logo.png', 113 );
 	}
 
 

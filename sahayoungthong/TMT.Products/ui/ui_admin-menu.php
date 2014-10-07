@@ -211,11 +211,15 @@ global $wpdb;
 	            	for (var chk = 0; chk < response.length; chk++) {
 	            	rec+='	<tr>';
 					rec+='		<td style="text-align:center;">'+response[chk].id+'</td>';
+					if(response[chk].brand_pic == '//' || response[chk].brand_pic == ''){
+						rec+='		<td class="imgThb2All"></td>';	
+					}else{
+						rec+='		<td class="imgThb2All"><img src="../wp-content/uploads/'+response[chk].brand_pic+'"></td>';
+					}
 					rec+='		<td>'+response[chk].brand_name+'</td>';
 					rec+='		<td>'+response[chk].brand_type+'</td>';
-					rec+='		<td>'+response[chk].brand_pic+'</td>';
 					rec+='		<td style="text-align:center;">'+response[chk].create_date+'</td>';
-					rec+='		<td style="text-align:center;"><button id="productAddBt" onclick="toedit('+response[chk].id+')" >Edit</button><button id="productAddBt" onclick="todel('+response[chk].id+')" >Delete</button></td>';
+					rec+='		<td style="text-align:center;"><button id="brandAddBt" onclick="toedit('+response[chk].id+')" >Edit</button><button id="brandAddBt" onclick="todel('+response[chk].id+')" >Delete</button></td>';
 					rec+='	</tr>';
 					}
 				}
@@ -254,11 +258,15 @@ global $wpdb;
 	            	for (var chk = 0; chk < response.length; chk++) {
 	            	rec+='	<tr>';
 					rec+='		<td style="text-align:center;">'+response[chk].id+'</td>';
+					if(response[chk].brand_pic == '//' || response[chk].brand_pic == ''){
+						rec+='		<td class="imgThb2All"></td>';	
+					}else{
+						rec+='		<td class="imgThb2All"><img src="../wp-content/uploads/'+response[chk].brand_pic+'"></td>';
+					}
 					rec+='		<td>'+response[chk].brand_name+'</td>';
 					rec+='		<td>'+response[chk].brand_type+'</td>';
-					rec+='		<td>'+response[chk].brand_pic+'</td>';
 					rec+='		<td style="text-align:center;">'+response[chk].create_date+'</td>';
-					rec+='		<td style="text-align:center;"><button id="productAddBt" onclick="toedit('+response[chk].id+')" >Edit</button><button id="productAddBt" onclick="todel('+response[chk].id+')" >Delete</button></td>';
+					rec+='		<td style="text-align:center;"><button id="brandAddBt" onclick="toedit('+response[chk].id+')" >Edit</button><button id="brandAddBt" onclick="todel('+response[chk].id+')" >Delete</button></td>';
 					rec+='	</tr>';
 					}
 				}
@@ -460,6 +468,16 @@ line-height: 10px;
   .spancurdown:hover, .spancurup:hover{
   	color: Gainsboro;
   }
+.imgThb2All{
+	margin: auto;
+	text-align: center;
+	padding: 5px 0px;
+	margin: 0px;
+}
+.imgThb2All img{
+	width: 140px;
+	height: auto;
+}
 </style>
 <div style="width:98%;">
 	<div style="height:20px;"></div>
@@ -501,9 +519,10 @@ line-height: 10px;
 				<table class="tablemember" cellpadding="7" cellspacing="0" id="resultTable2">
 					<thead>
 						<th width="40px;">ID<div class="wrapSort"><span class="spancurup" onclick="sortfuncb('brand_id','asc')">▲</span><span class="spancurdown" onclick="sortfuncb('brand_id','desc')">▼</span></div></th>
+						 <th width="145px;">Picture<div class="wrapSort"><span class="spancurup" onclick="sortfuncb('brand_picture','asc')">▲</span><span class="spancurdown" onclick="sortfuncb('brand_picture','desc')">▼</span></div></th>
 						<th>Brand Name<div class="wrapSort"><span class="spancurup" onclick="sortfuncb('brand_name','asc')">▲</span><span class="spancurdown" onclick="sortfuncb('brand_name','desc')">▼</span></div></th>
 						<th>Type<div class="wrapSort"><span class="spancurup" onclick="sortfuncb('brand_type','asc')">▲</span><span class="spancurdown" onclick="sortfuncb('brand_type','desc')">▼</span></div></th>
-					    <th>Picture<div class="wrapSort"><span class="spancurup" onclick="sortfuncb('brand_picture','asc')">▲</span><span class="spancurdown" onclick="sortfuncb('brand_picture','desc')">▼</span></div></th>
+					   
 						<th width="120px;">Create Date<div class="wrapSort"><span class="spancurup" onclick="sortfuncb('create_date','asc')">▲</span><span class="spancurdown" onclick="sortfuncb('create_date','desc')">▼</span></div></th> 
 						<th width="150px;"></th>
 					</thead>
@@ -514,6 +533,11 @@ line-height: 10px;
 						?>
 						<tr>
 							<td style="text-align:center;"><?php echo $dbr5->brand_id; ?></td>
+							<?php if($dbr5->brand_picture == '//' || $dbr5->brand_picture == ''){ ?>
+								<td class="imgThb2All"></td>
+							<?php }else{ ?>
+								<td class="imgThb2All"><img src="../wp-content/uploads/<?php echo $dbr5->brand_picture; ?>"></td>
+							<?php } ?>
 							<td><?php echo  $dbr5->brand_name; ?></td>
 							<td><?php $solo =  $dbr5->brand_type;
 								$results6 = $wpdb->get_results("SELECT type_name FROM wp_type WHERE type_id = $solo");
@@ -521,7 +545,7 @@ line-height: 10px;
 									echo $dbr6->type_name;
 								}?>
 						    </td>
-							<td><?php echo  $dbr5->brand_picture; ?></td>
+							
 							<td style="text-align:center;"><?php echo  $dbr5->create_date; ?></td>	
 							<td style="text-align:center;"><button id="brandAddBt" onclick="toeditb(<?php echo $dbr5->brand_id; ?>)" >Edit</button><button id="brandAddBt" onclick="todelb(<?php echo $dbr5->brand_id; ?>)" >Delete</button></td>						
 						</tr>
@@ -656,6 +680,11 @@ global $wpdb;
 	            	for (var chk = 0; chk < response.length; chk++) {
 	            	rec+='	<tr>';
 					rec+='		<td style="text-align:center;">'+response[chk].id+'</td>';
+					if(response[chk].pd_picture == '//' || response[chk].pd_picture == ''){
+						rec+='		<td class="imgThbAll"></td>';	
+					}else{
+						rec+='		<td class="imgThbAll"><img src="../wp-content/uploads/'+response[chk].pd_picture+'"></td>';
+					}
 					rec+='		<td>'+response[chk].pd_code+'</td>';
 					rec+='		<td>'+response[chk].brandName+'</td>';
 					rec+='		<td>'+response[chk].pd_type+'</td>';
@@ -663,7 +692,6 @@ global $wpdb;
 					rec+='		<td style="text-align:center;">'+response[chk].pd_series+'</td>';
 					rec+='		<td style="text-align:center;">'+response[chk].pd_pan_wheels+'</td>';
 					rec+='		<td>'+response[chk].pd_price+'</td>';
-					rec+='		<td>'+response[chk].pd_picture+'</td>';
 					rec+='		<td style="text-align:center;">'+response[chk].create_date+'</td>';
 					rec+='		<td style="text-align:center;"><button id="productAddBt" onclick="toedit('+response[chk].id+')" >Edit</button><button id="productAddBt" onclick="todel('+response[chk].id+')" >Delete</button></td>';
 					rec+='	</tr>';
@@ -983,6 +1011,11 @@ function sortfunc(a,b){
 	            	for (var chk = 0; chk < response.length; chk++) {
 	            	rec+='	<tr>';
 					rec+='		<td style="text-align:center;">'+response[chk].id+'</td>';
+					if(response[chk].pd_picture == '//' || response[chk].pd_picture == ''){
+						rec+='		<td class="imgThbAll"></td>';	
+					}else{
+						rec+='		<td class="imgThbAll"><img src="../wp-content/uploads/'+response[chk].pd_picture+'"></td>';
+					}
 					rec+='		<td>'+response[chk].pd_code+'</td>';
 					rec+='		<td>'+response[chk].brandName+'</td>';
 					rec+='		<td>'+response[chk].pd_type+'</td>';
@@ -990,7 +1023,6 @@ function sortfunc(a,b){
 					rec+='		<td style="text-align:center;">'+response[chk].pd_series+'</td>';
 					rec+='		<td style="text-align:center;">'+response[chk].pd_pan_wheels+'</td>';
 					rec+='		<td>'+response[chk].pd_price+'</td>';
-					rec+='		<td>'+response[chk].pd_picture+'</td>';
 					rec+='		<td style="text-align:center;">'+response[chk].create_date+'</td>';
 					rec+='		<td style="text-align:center;"><button id="productAddBt" onclick="toedit('+response[chk].id+')" >Edit</button><button id="productAddBt" onclick="todel('+response[chk].id+')" >Delete</button></td>';
 					rec+='	</tr>';
@@ -1275,6 +1307,14 @@ padding: 0px;
 margin: 0px;
 line-height: 10px;
 }
+.imgThbAll{
+	margin: auto;
+	text-align: center;
+}
+.imgThbAll img{
+	width: 36px;
+	height: auto;
+}
 </style>
 <div style="width:98%;">
   <div style="height:20px;"></div>
@@ -1326,6 +1366,7 @@ line-height: 10px;
 			<table class="tablemember" cellpadding="7" cellspacing="0" id="resultTable">
 				<thead>
 					<th width="40px;">ID<div class="wrapSort"><span class="spancurup" onclick="sortfunc('pd_id','asc')">▲</span><span class="spancurdown" onclick="sortfunc('pd_id','desc')">▼</span></div></th>
+					<th>Picture<div class="wrapSort"><span class="spancurup" onclick="sortfunc('pd_picture','asc')">▲</span><span class="spancurdown" onclick="sortfunc('pd_picture','desc')">▼</span></div></th>
 					<th>Product Code<div class="wrapSort"><span class="spancurup" onclick="sortfunc('pd_code','asc')">▲</span><span class="spancurdown" onclick="sortfunc('pd_code','desc')">▼</span></div></th>
 					<th>Brand<div class="wrapSort"><span class="spancurup" onclick="sortfunc('brand_id','asc')">▲</span><span class="spancurdown" onclick="sortfunc('brand_id','desc')">▼</span></div></th>
 					<th>Product Type<div class="wrapSort"><span class="spancurup" onclick="sortfunc('pd_type','asc')">▲</span><span class="spancurdown" onclick="sortfunc('pd_type','desc')">▼</span></div></th>
@@ -1333,7 +1374,7 @@ line-height: 10px;
 				    <th>Series<div class="wrapSort"><span class="spancurup" onclick="sortfunc('pd_series','asc')">▲</span><span class="spancurdown" onclick="sortfunc('pd_series','desc')">▼</span></div></th>
 				    <th>Wheel caps<div class="wrapSort"><span class="spancurup" onclick="sortfunc('pd_pan_wheels','asc')">▲</span><span class="spancurdown" onclick="sortfunc('pd_pan_wheels','desc')">▼</span></div></th>
 					<th>Price<div class="wrapSort"><span class="spancurup" onclick="sortfunc('pd_price','asc')">▲</span><span class="spancurdown" onclick="sortfunc('pd_price','desc')">▼</span></div></th>
-					<th>Picture<div class="wrapSort"><span class="spancurup" onclick="sortfunc('pd_picture','asc')">▲</span><span class="spancurdown" onclick="sortfunc('pd_picture','desc')">▼</span></div></th>
+					
 					<th width="120px;">Create Date<div class="wrapSort"><span class="spancurup" onclick="sortfunc('create_date','asc')">▲</span><span class="spancurdown" onclick="sortfunc('create_date','desc')">▼</span></div></th> 
 					<th width="150px;"></th>
 				</thead>
@@ -1344,6 +1385,11 @@ line-height: 10px;
 						foreach($results as $dbr){
 					?><tr>
 						<td style="text-align:center;"><?php echo $dbr->pd_id; ?></td>
+						<?php if($dbr->pd_picture == '//' || $dbr->pd_picture == ''){ ?>
+							<td class="imgThbAll"></td>
+						<?php }else{ ?>
+							<td class="imgThbAll"><img src="../wp-content/uploads/<?php echo $dbr->pd_picture; ?>"></td>
+						<?php } ?>
 						<td><?php echo $dbr->pd_code; ?></td>
 						<td><?php $solop = $dbr->brand_id;
 								$results2 = $wpdb->get_results("SELECT brand_name FROM wp_brand WHERE brand_id = $solop");
@@ -1359,7 +1405,7 @@ line-height: 10px;
 						<td style="text-align:center;"><?php echo $dbr->pd_series; ?></td>
 						<td style="text-align:center;"><?php echo $dbr->pd_pan_wheels; ?></td>
 						<td><?php echo $dbr->pd_price; ?></td>
-						<td><?php echo $dbr->pd_picture; ?></td>
+						
 						<td style="text-align:center;"><?php echo $dbr->create_date; ?></td>
 						<td style="text-align:center;"><button id="productAddBt" onclick="toedit(<?php echo $dbr->pd_id; ?>)" >Edit</button><button id="productAddBt" onclick="todel(<?php echo $dbr->pd_id; ?>)" >Delete</button></td>
 					</tr>

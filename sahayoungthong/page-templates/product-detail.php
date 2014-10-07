@@ -66,7 +66,7 @@ if(isset($_SESSION['lang'])){
                if(data[0].pd_picture == '' || data[0].pd_picture == '//'){                        
                 $('#img_pd').attr("src",'<?php echo get_template_directory_uri(); ?>/images/logo-1.png');    
                }else{
-                $('#img_pd').attr("src",'/sahayoungthong/wp-content/uploads/'+data[0].pd_picture);                                 
+                $('#img_pd').attr("src",'/wp-content/uploads/'+data[0].pd_picture);                                 
                }
                
           	   if(data[0].pd_tb_img != null){
@@ -94,7 +94,7 @@ if(isset($_SESSION['lang'])){
             <ul>
                 <?php $submenup = $wpdb->get_results("SELECT * FROM wp_type ORDER BY type_id ASC");
                 foreach($submenup as $submenu){ ?>
-                <li><a href="/sahayoungthong/?page_id=<?php echo $submenu->page_id; ?>" ><?php if($lang == 'TH'){ echo $submenu->type_name_th;  }else{ echo $submenu->type_name; } ?></a></li>
+                <li><a href="/?page_id=<?php echo $submenu->page_id; ?>" ><?php if($lang == 'TH'){ echo $submenu->type_name_th;  }else{ echo $submenu->type_name; } ?></a></li>
                 <?php } ?>
             </ul>
         </div>
